@@ -13,6 +13,8 @@ perch_weight = np.array([5.9, 32.0, 40.0, 51.5, 70.0, 100.0, 78.0, 80.0, 85.0, 8
        850.0, 900.0, 1015.0, 820.0, 1100.0, 1000.0, 1100.0, 1000.0,
        1000.0])
 
+print(perch_length.shape)
+
 from sklearn.model_selection import train_test_split
 train_input, test_input, train_target, test_target = \
     train_test_split(perch_length, perch_weight, random_state=42)
@@ -42,9 +44,12 @@ test_prediction = knr.predict(test_input)
 mae = mean_absolute_error(test_target, test_prediction)
 print(mae)
 
+print(knr.predict([[25]]))
+
 
 import matplotlib.pyplot as plt
 plt.scatter(perch_length,perch_weight)
+plt.scatter(25,knr.predict([[25]]))
 plt.xlabel('length')
 plt.ylabel('weight')
 plt.show()

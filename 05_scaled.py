@@ -36,15 +36,17 @@ print(mean, std)
 train_scaled = (train_input - mean) / std
 print(train_scaled)
 
-scaled_new = ([25,150] - mean) / std
-
 kn.fit(train_scaled, train_target)
+
+scaled_new = ([25,150] - mean) / std
+print(kn.predict([scaled_new]))
+
 
 test_scaled = (test_input - mean) / std
 print(test_scaled)
 
+
 print(kn.score(test_scaled, test_target))
-print(kn.predict([scaled_new]))
     
 
 import matplotlib.pyplot as plt
