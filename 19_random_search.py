@@ -41,6 +41,5 @@ gs.fit(train_input, train_target)
 print(gs.best_params_)
 
 print(np.max(gs.cv_results_['mean_test_score']))
-
 dt = gs.best_estimator_
 print(dt.score(test_input, test_target))

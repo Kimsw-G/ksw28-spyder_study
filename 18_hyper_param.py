@@ -24,10 +24,8 @@ gs.fit(train_input, train_target)
 
 dt = gs.best_estimator_
 print(dt.score(train_input, train_target))
-
 print(gs.best_params_)
 print(gs.cv_results_['mean_test_score'])
-
 best_index = np.argmax(gs.cv_results_['mean_test_score'])
 print(gs.cv_results_['params'][best_index])
 

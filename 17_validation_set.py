@@ -1,4 +1,3 @@
-import numpy as np
 import pandas as pd
 wine = pd.read_csv('https://bit.ly/wine_csv_data')
 
@@ -23,17 +22,18 @@ dt = DecisionTreeClassifier(random_state=42)
 dt.fit(sub_input, sub_target)
 print_score(dt,"dt")
 
+import numpy as np
 from sklearn.model_selection import cross_validate
 scores = cross_validate(dt, train_input, train_target)
-# print(scores)
+print(scores)
 print(np.mean(scores['test_score']))
 
 from sklearn.model_selection import StratifiedKFold
 scores = cross_validate(dt, train_input, train_target, cv=StratifiedKFold())
-# print(scores)
+print(scores)
 print(np.mean(scores['test_score']))
 
 splitter = StratifiedKFold(n_splits=10, shuffle=True, random_state=42)
 scores = cross_validate(dt, train_input, train_target, cv=splitter)
-# print(scores)
+print(scores)
 print(np.mean(scores['test_score']))
